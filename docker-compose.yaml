@@ -1,0 +1,15 @@
+version: "3"
+services:
+  app:
+    container_name: devops-workshop-express
+    restart: always
+    build: ./  #izbuild Dockerfile u vom folderu
+    ports:
+      - "8081:8081"
+    links:
+      - mongo #na koje servise se ovaj servis oslanja
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017" #njegov default port
